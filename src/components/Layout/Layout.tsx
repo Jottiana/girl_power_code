@@ -9,7 +9,6 @@ const Layout: React.FC = () => {
   return (
     <div className="container">
       <header className="header">
-        {/* Utilisation de location.pathname comme clé pour relancer l'animation */}
         <AnimatedHeader key={location.pathname} />
         <Navbar />
       </header>

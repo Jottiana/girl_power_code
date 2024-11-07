@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* Définition des variables de couleurs */
 :root {
   --font-title: 'Tilt Neon', sans-serif;
   --font-body: 'Noto Sans', sans-serif;
@@ -22,7 +21,7 @@
 html, body {
   height: 100%;
   width: 100%;
-  overflow-x: hidden; /* Empêche le défilement horizontal */
+  overflow-x: hidden; 
   font-family: var(--font-title);
 }
 
@@ -97,12 +96,9 @@ html, body {
   margin-top: auto;
 }
 
-/* Responsive adjustments */
-
-/* Pour les écrans de moins de 900px (tablettes) */
 @media (max-width: 900px) {
   .main {
-    grid-template-columns: 1fr; /* Passage à une colonne */
+    grid-template-columns: 1fr; 
     padding: 1rem;
   }
 

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const AnimatedHeader = () => {
   const title = "Girl Power Code";
   
-  // Génère un tableau d'objets pour chaque lettre avec un identifiant unique
+
   const letters = title.split("").map((letter, i) => ({ letter, id: `${letter}-${i}` }));
 
   const container = {
@@ -28,7 +28,7 @@ const AnimatedHeader = () => {
     >
       {letters.map(({ letter, id }) => (
         <motion.span
-          key={id} // Utilise `id` plutôt que `index` comme clé unique
+          key={id} 
           variants={letterAnimation}
           style={{ display: 'inline-block' }}
         >

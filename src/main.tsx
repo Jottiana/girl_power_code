@@ -2,45 +2,52 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
-import Heroines from "./pages/Heroines";
+import Heroines from "./pages/Heroines/Heroines";
 import Metiers from "./pages/Metiers";
-import Apprendre from "./pages/Apprendre";
+import Apprendre from "./pages/Apprendre/Apprendre";
 import Blog from "./pages/Blog";
 import Communaute from "./pages/Communaute";
 import Layout from "./components/Layout/Layout";
+import { LearningProvider } from "./LearningContext";
+import { HeroinesProvider } from "./HeroinesContext";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+	[
+		{
+			path: "/",
+			element: <Layout />,
+			children: [
+				{
+					index: true,
+					element: <Home />,
+				},
+				{
+					path: "/heroines",
+					element: <Heroines />,
+				},
+				{
+					path: "/metiers",
+					element: <Metiers />,
+				},
+				{
+					path: "/apprendre",
+					element: <Apprendre />,
+				},
+				{
+					path: "/blog",
+					element: <Blog />,
+				},
+				{
+					path: "/communaute",
+					element: <Communaute />,
+				},
+			],
+		},
+	],
 	{
-		path: "/",
-		element: <Layout />, // Utilisation de Layout comme structure principale
-		children: [
-			{
-				index: true,
-				element: <Home />,
-			},
-			{
-				path: "/heroines",
-				element: <Heroines />,
-			},
-			{
-				path: "/metiers",
-				element: <Metiers />,
-			},
-			{
-				path: "/apprendre",
-				element: <Apprendre />,
-			},
-			{
-				path: "/blog",
-				element: <Blog />,
-			},
-			{
-				path: "/communaute",
-				element: <Communaute />,
-			},
-		],
+		basename: "/girl_power_code",
 	},
-]);
+);
 
 const rootElement = document.getElementById("root");
 if (rootElement == null) {
@@ -49,6 +56,10 @@ if (rootElement == null) {
 
 createRoot(rootElement).render(
 	<StrictMode>
-		<RouterProvider router={router} />
+		<LearningProvider>
+			<HeroinesProvider>
+				<RouterProvider router={router} />
+			</HeroinesProvider>
+		</LearningProvider>
 	</StrictMode>,
 );
