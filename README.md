@@ -1,3 +1,4 @@
+```plaintext
 src/
 ├── components/
 │   ├── Header.tsx
@@ -18,3 +19,4 @@ src/
 ├── main.tsx
 └── router/
     └── AppRouter.tsx
+```

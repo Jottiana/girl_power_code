@@ -2,8 +2,11 @@
   "name": "girl_power_code",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://{jottiana}.github.io/{girl_power_code}/",
   "type": "module",
   "scripts": {
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d dist",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "check": "biome check src",
@@ -20,6 +23,7 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "@vitejs/plugin-react": "^4.3.3",
+    "gh-pages": "^6.2.0",
     "typescript": "~5.6.2",
     "vite": "^5.4.10"
   }
