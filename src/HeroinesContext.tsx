@@ -15,13 +15,22 @@ type HeroinesProviderProps = {
 
 const HeroinesContext = createContext<Heroine[] | null>(null);
 
-// Liste des héroïnes avec les URLs de Wikipédia
 const heroines = [
-  { name: "Ada Lovelace", wikiUrl: "https://en.wikipedia.org/wiki/Ada_Lovelace" },
-  { name: "Grace Hopper", wikiUrl: "https://en.wikipedia.org/wiki/Grace_Hopper" },
-  { name: "Katherine Johnson", wikiUrl: "https://en.wikipedia.org/wiki/Katherine_Johnson" },
-  { name: "Hedy Lamarr", wikiUrl: "https://en.wikipedia.org/wiki/Hedy_Lamarr" },
-  { name: "Margaret Hamilton", wikiUrl: "https://en.wikipedia.org/wiki/Margaret_Hamilton_(software_engineer)" },
+  { name: "Ada Lovelace", wikiUrl: "https://fr.wikipedia.org/wiki/Ada_Lovelace" },
+  { name: "Grace Hopper", wikiUrl: "https://fr.wikipedia.org/wiki/Grace_Hopper" },
+  { name: "Katherine Johnson", wikiUrl: "https://fr.wikipedia.org/wiki/Katherine_Johnson" },
+  { name: "Hedy Lamarr", wikiUrl: "https://fr.wikipedia.org/wiki/Hedy_Lamarr" },
+  { name: "Margaret Hamilton", wikiUrl: "https://fr.wikipedia.org/wiki/Margaret_Hamilton_(scientifique)" },
+  { name: "Radia Perlman", wikiUrl: "https://fr.wikipedia.org/wiki/Radia_Perlman"},
+  { name: "Annie Easley", wikiUrl: "https://fr.wikipedia.org/wiki/Annie_Easley"},
+  { name: "Jean E. Sammet", wikiUrl: "https://fr.wikipedia.org/wiki/Jean_E._Sammet"},
+  { name: "Mary Allen Wilkes", wikiUrl: "https://fr.wikipedia.org/wiki/Mary_Allen_Wilkes"},
+  { name: "Carol Shaw", wikiUrl: "https://fr.wikipedia.org/wiki/Carol_Shaw"},
+  { name: "Kimberly Bryant", wikiUrl: "https://fr.wikipedia.org/wiki/Kimberly_Bryant"},
+  { name: "Reshma Saujani", wikiUrl: "https://fr.wikipedia.org/wiki/Reshma_Saujani"},
+  { name: "Rana el Kaliouby", wikiUrl: "https://fr.wikipedia.org/wiki/Rana_el_Kaliouby"},
+  { name: "Fei-Fei Li", wikiUrl: "https://fr.wikipedia.org/wiki/Fei-Fei_Li"},
+  { name: "Timnit Gebru", wikiUrl: "https://fr.wikipedia.org/wiki/Timnit_Gebru"},
 ];
 
 export const HeroinesProvider = ({ children }: HeroinesProviderProps) => {
@@ -38,9 +47,9 @@ export const HeroinesProvider = ({ children }: HeroinesProviderProps) => {
 
           return {
             name: heroine.name,
-            wikiUrl: heroine.wikiUrl,
-            image: json.thumbnail?.source || '', // Récupère l'image s'il y en a une
-            description: json.extract, // Récupère un résumé
+            wikiUrl: heroine.wikiUrl || '',  
+            image: json.thumbnail?.source || '', 
+            description: json.extract || '', 
           };
         })
       );
